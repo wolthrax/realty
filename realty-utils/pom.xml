@@ -21,7 +21,6 @@
 		<dependency>
 			<groupId>by.home.hryhoryeu</groupId>
 			<artifactId>realty-entities</artifactId>
-			<version>0.1</version>
 		</dependency>
     
 	</dependencies>
