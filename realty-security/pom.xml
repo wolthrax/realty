@@ -9,8 +9,8 @@
 		<version>0.1</version>
 	</parent>
   
-	<artifactId>realty-services</artifactId> 
-	<name>realty-services</name>
+	<artifactId>realty-security</artifactId>
+	<name>realty-security</name>
   
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,18 +20,17 @@
 
 		<dependency>
 			<groupId>by.home.hryhoryeu</groupId>
-			<artifactId>realty-dba</artifactId>
+			<artifactId>realty-entities</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>by.home.hryhoryeu</groupId>
-			<artifactId>realty-entities</artifactId>
-			<version>0.1</version>
+			<artifactId>realty-services</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
 		</dependency>
 
 		<dependency>

@@ -1,8 +1,9 @@
 package by.home.hryhoryeu.realty.web.controllers;
 
 
-import by.home.hryhoryeu.realty.entities.model.dictionary.Dictionary;
-import by.home.hryhoryeu.realty.services.dictionary.IDictionaryService;
+import by.home.hryhoryeu.realty.entities.model.role.Role;
+import by.home.hryhoryeu.realty.security.dictionary.IDictionaryService;
+import by.home.hryhoryeu.realty.security.role.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,20 +12,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/")
 public class MainPageController {
 
     @Autowired
     private IDictionaryService dictionaryService;
+    @Autowired
+    private IRoleService roleService;
 
-//    @RequestMapping(path = "{id}", method = RequestMethod.GET)
-//    public ResponseEntity<?> getEmployeeInfo(@PathVariable("id") Long id) throws Exception {
-//        List<Dictionary> dicts = dictionaryService.getAll(id);
-//        return new ResponseEntity<>(dicts, HttpStatus.OK);
-//    }
+    @RequestMapping(path = "{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> getEmployeeInfo(@PathVariable("id") String id) throws Exception {
+        Role role = roleService.findByName("ADMIN_ROLE");
+        return new ResponseEntity<>(role, HttpStatus.OK);
+    }
 
 //    @RequestMapping(method = RequestMethod.GET)
 //    public ResponseEntity<?> getEmployeeInfo() throws Exception {

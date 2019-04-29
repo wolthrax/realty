@@ -1,8 +1,7 @@
 package by.home.hryhoryeu.realty.entities.model.user;
 
-import by.home.hryhoryeu.realty.entities.enums.Role1;
 import by.home.hryhoryeu.realty.entities.model.BaseEntity;
-import by.home.hryhoryeu.realty.entities.model.dictionary.Role;
+import by.home.hryhoryeu.realty.entities.model.role.Role;
 import by.home.hryhoryeu.realty.entities.model.realty.Realty;
 
 import javax.persistence.Column;
@@ -19,6 +18,9 @@ import java.util.List;
 @Entity
 @Table(name = "user")
 public class User extends BaseEntity {
+
+    @Column(name = "login")
+    private String login;
 
     @Column(name="name")
     private String name;
@@ -52,6 +54,14 @@ public class User extends BaseEntity {
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
     private List<Role> roles;
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
 
     public String getName() {
         return name;

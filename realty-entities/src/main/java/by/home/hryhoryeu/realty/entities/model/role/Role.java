@@ -1,4 +1,4 @@
-package by.home.hryhoryeu.realty.entities.model.dictionary;
+package by.home.hryhoryeu.realty.entities.model.role;
 
 import by.home.hryhoryeu.realty.entities.model.BaseEntity;
 import by.home.hryhoryeu.realty.entities.model.user.User;
@@ -17,7 +17,7 @@ public class Role extends BaseEntity {
     @Column(name = "value")
     private String value;
 
-    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
     private List<User> users;
 
     public String getValue() {

@@ -2,7 +2,7 @@ package by.home.hryhoryeu.realty.web.controllers;
 
 import by.home.hryhoryeu.realty.entities.model.dictionary.HouseType;
 import by.home.hryhoryeu.realty.entities.model.dictionary.StreetType;
-import by.home.hryhoryeu.realty.services.dictionary.IDictionaryService;
+import by.home.hryhoryeu.realty.security.dictionary.IDictionaryService;
 import by.home.hryhoryeu.realty.web.RestApiEndpoints;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

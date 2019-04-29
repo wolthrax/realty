@@ -8,4 +8,8 @@ public interface RestApiEndpoints {
         String HOUSE_TYPES = "/house-types";
         String STREET_TYPES = "/street-types";
     }
+
+    interface User {
+        String BASE = "/user";
+    }
 }

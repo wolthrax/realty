@@ -1,6 +1,6 @@
-package by.home.hryhoryeu.realty.services.realty.impl;
+package by.home.hryhoryeu.realty.security.realty.impl;
 
-import by.home.hryhoryeu.realty.services.realty.IRealtyService;
+import by.home.hryhoryeu.realty.security.realty.IRealtyService;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional

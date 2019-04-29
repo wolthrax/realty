@@ -5,6 +5,6 @@ import by.home.hryhoryeu.realty.entities.model.user.User;
 
 public interface IUserDao extends IBaseDao<User, Long> {
 
-
+    User findByLogin(String login);
 
 }
