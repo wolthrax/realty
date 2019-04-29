@@ -1,4 +1,4 @@
-package by.home.hryhoryeu.realty.entities.pojo.dictionary;
+package by.home.hryhoryeu.realty.entities.model.dictionary;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;

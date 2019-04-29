@@ -11,18 +11,18 @@ import java.util.List;
 
 @Repository
 @Scope("singleton")
-public class BaseDaoImpl<T, PK extends Serializable> implements IBaseDao<T, PK> {
+public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
 
     @Autowired
     SessionFactory sessionFactory;
 
     protected Class<T> clazz;
 
-    public BaseDaoImpl() {
+    public BaseDao() {
         super();
     }
 
-    public BaseDaoImpl(Class<T> clazz){
+    public BaseDao(Class<T> clazz){
         this.clazz = clazz;
     }
 
@@ -38,17 +38,24 @@ public class BaseDaoImpl<T, PK extends Serializable> implements IBaseDao<T, PK> 
         return list;
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<T> getKeyVal(Class clazz) {
+        @SuppressWarnings("deprecation")
+        List<T> list = getSession().createCriteria(clazz).list();
+        return list;
+    }
+
+
     @Override
     public T findById(PK id) {
-        T object = getSession().get(clazz, id);
-        return object;
+        return getSession().get(clazz, id);
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public PK set(T object) {
-        PK id = (PK) getSession().save(object);
-        return id;
+        return (PK) getSession().save(object);
     }
 
     @Override

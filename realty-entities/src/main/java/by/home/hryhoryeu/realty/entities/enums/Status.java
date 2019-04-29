@@ -1,7 +1,8 @@
 package by.home.hryhoryeu.realty.entities.enums;
 
-public enum Role {
+public enum Status {
 
-    GUEST, USER, ADMIN
+    ACTIVE,
+    ARCHIVE
 
 }

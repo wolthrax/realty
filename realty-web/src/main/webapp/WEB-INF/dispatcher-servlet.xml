@@ -16,25 +16,6 @@
     <!--<mvc:resources mapping="/resources/**" location="/resources/"/>&ndash;&gt;-->
     <mvc:resources mapping="/assets/**" location="/assets/"/>
 
-    <!-- Thymeleaf -->
-<!--    <bean id="templateResolver"-->
-<!--          class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">-->
-<!--&lt;!&ndash;        <property name="prefix" value="/WEB-INF/views/" />&ndash;&gt;-->
-<!--        <property name="suffix" value=".html" />-->
-<!--        <property name="templateMode" value="HTML5" />-->
-<!--    </bean>-->
-
-<!--    <bean id="templateEngine"-->
-<!--          class="org.thymeleaf.spring5.SpringTemplateEngine">-->
-<!--        <property name="templateResolver" ref="templateResolver" />-->
-<!--        <property name="enableSpringELCompiler" value="true" />-->
-<!--    </bean>-->
-
-<!--    <bean class="org.thymeleaf.spring5.view.ThymeleafViewResolver">-->
-<!--        <property name="templateEngine" ref="templateEngine" />-->
-<!--    </bean>-->
-    <!-- ======== -->
-
     <!-- i18n -->
     <!--<bean id="messageSource"-->
           <!--class="org.springframework.context.support.ReloadableResourceBundleMessageSource">-->
