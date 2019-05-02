@@ -1,11 +1,16 @@
 package by.home.hryhoryeu.realty.entities.model.user;
 
+import by.home.hryhoryeu.realty.entities.enums.Status;
 import by.home.hryhoryeu.realty.entities.model.BaseEntity;
 import by.home.hryhoryeu.realty.entities.model.role.Role;
 import by.home.hryhoryeu.realty.entities.model.realty.Realty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -46,13 +51,21 @@ public class User extends BaseEntity {
     @Column(name="password")
     private String password;
 
-    @OneToMany(mappedBy = "user")
-    private List<Realty> realtyList;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private Status status;
 
+    @Column(name = "updated")
+    private Date updated;
+
+//    @OneToMany(mappedBy = "user")
+//    private List<Realty> realtyList;
+
+    //@JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
-            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roles;
 
     public String getLogin() {
@@ -127,13 +140,29 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
-    public List<Realty> getRealtyList() {
-        return realtyList;
+    public Status getStatus() {
+        return status;
     }
 
-    public void setRealtyList(List<Realty> realtyList) {
-        this.realtyList = realtyList;
+    public void setStatus(Status status) {
+        this.status = status;
     }
+
+    public Date getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Date updated) {
+        this.updated = updated;
+    }
+
+//    public List<Realty> getRealtyList() {
+//        return realtyList;
+//    }
+//
+//    public void setRealtyList(List<Realty> realtyList) {
+//        this.realtyList = realtyList;
+//    }
 
     public List<Role> getRoles() {
         return roles;

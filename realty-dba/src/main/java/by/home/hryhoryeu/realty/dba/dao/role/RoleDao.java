@@ -12,7 +12,7 @@ import javax.persistence.Query;
 public class RoleDao extends BaseDao<Role, Long> implements IRoleDao {
 
     public RoleDao() {
-        super();
+        super(Role.class);
     }
 
     @Override
@@ -20,6 +20,7 @@ public class RoleDao extends BaseDao<Role, Long> implements IRoleDao {
         String hql = "FROM Role role WHERE role.value =: name";
         Query query = getSession().createQuery(hql);
         query.setParameter("name", name);
+        Role r =  (Role) query.getSingleResult();
         return (Role) query.getSingleResult();
     }
 }

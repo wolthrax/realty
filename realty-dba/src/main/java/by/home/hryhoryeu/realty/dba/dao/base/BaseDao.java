@@ -14,15 +14,19 @@ import java.util.List;
 public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
 
     @Autowired
-    SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
-    protected Class<T> clazz;
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
+    private Class<T> clazz;
 
     public BaseDao() {
         super();
     }
 
-    public BaseDao(Class<T> clazz){
+    public BaseDao(Class<T> clazz) {
         this.clazz = clazz;
     }
 
@@ -38,33 +42,26 @@ public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
         return list;
     }
 
-    @SuppressWarnings("unchecked")
-    @Override
-    public List<T> getKeyVal(Class clazz) {
-        @SuppressWarnings("deprecation")
-        List<T> list = getSession().createCriteria(clazz).list();
-        return list;
-    }
-
-
     @Override
     public T findById(PK id) {
-        return getSession().get(clazz, id);
+        T object = getSession().get(clazz, id);
+        return object;
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public PK set(T object) {
-        return (PK) getSession().save(object);
-    }
-
-    @Override
-    public void update(Object object) {
-        getSession().update(object);
+        PK id = (PK) getSession().save(object);
+        return id;
     }
 
     @Override
     public void delete(Object object) {
         getSession().delete(object);
+    }
+
+    @Override
+    public void update(Object object) {
+        getSession().update(object);
     }
 }

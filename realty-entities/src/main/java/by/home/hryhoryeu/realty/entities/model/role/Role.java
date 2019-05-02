@@ -2,6 +2,7 @@ package by.home.hryhoryeu.realty.entities.model.role;
 
 import by.home.hryhoryeu.realty.entities.model.BaseEntity;
 import by.home.hryhoryeu.realty.entities.model.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +18,8 @@ public class Role extends BaseEntity {
     @Column(name = "value")
     private String value;
 
-    @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
+    @JsonIgnore
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
     private List<User> users;
 
     public String getValue() {

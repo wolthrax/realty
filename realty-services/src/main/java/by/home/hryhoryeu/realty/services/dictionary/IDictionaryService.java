@@ -1,4 +1,4 @@
-package by.home.hryhoryeu.realty.security.dictionary;
+package by.home.hryhoryeu.realty.services.dictionary;
 
 import by.home.hryhoryeu.realty.entities.model.dictionary.Dictionary;
 

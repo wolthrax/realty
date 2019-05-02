@@ -1,4 +1,4 @@
-package by.home.hryhoryeu.realty.security.user;
+package by.home.hryhoryeu.realty.services.user;
 
 import by.home.hryhoryeu.realty.entities.model.user.User;
 

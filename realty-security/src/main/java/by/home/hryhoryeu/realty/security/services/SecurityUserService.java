@@ -1,18 +1,21 @@
 package by.home.hryhoryeu.realty.security.services;
 
 import by.home.hryhoryeu.realty.entities.model.user.User;
-import by.home.hryhoryeu.realty.security.user.IUserService;
+import by.home.hryhoryeu.realty.security.dto.SecurityUser;
+import by.home.hryhoryeu.realty.services.user.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserSecurityService implements UserDetailsService {
+public class SecurityUserService implements UserDetailsService {
 
     private final IUserService userService;
 
-    public UserSecurityService(IUserService userService) {
+    @Autowired
+    public SecurityUserService(IUserService userService) {
         this.userService = userService;
     }
 
@@ -24,7 +27,8 @@ public class UserSecurityService implements UserDetailsService {
             throw new UsernameNotFoundException("User with login " + login + " not found");
         }
 
+        SecurityUser securityUser = SecurityUserFactory.create(user);
 
-        return null;
+        return securityUser;
     }
 }

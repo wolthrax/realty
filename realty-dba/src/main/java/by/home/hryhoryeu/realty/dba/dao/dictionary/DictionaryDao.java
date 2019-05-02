@@ -11,7 +11,7 @@ public class DictionaryDao extends BaseDao<Dictionary, Long> implements IDiction
 
     @Override
     public List<Dictionary> findByType(Class clazz) {
-        this.clazz = clazz;
+        //this.clazz = clazz;
         return findAll();
     }
 }
