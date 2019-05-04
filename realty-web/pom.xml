@@ -27,11 +27,6 @@
 			<artifactId>realty-services</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>by.home.hryhoryeu</groupId>
-			<artifactId>realty-security</artifactId>
-		</dependency>
-
 		<!--MVC-->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -45,13 +40,25 @@
 
 		<!--Web-->
 		<dependency>
-			<groupId>org.thymeleaf</groupId>
-			<artifactId>thymeleaf-spring5</artifactId>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-jsp</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-servlet</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-template</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-el</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>org.thymeleaf</groupId>
-			<artifactId>thymeleaf</artifactId>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
 		</dependency>
 
 		<dependency>
