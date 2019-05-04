@@ -1,10 +1,12 @@
 package by.home.hryhoryeu.realty.services.user;
 
 import by.home.hryhoryeu.realty.dba.dao.user.IUserDao;
+import by.home.hryhoryeu.realty.entities.dto.UserDto;
 import by.home.hryhoryeu.realty.entities.enums.Roles;
 import by.home.hryhoryeu.realty.entities.enums.Status;
 import by.home.hryhoryeu.realty.entities.model.role.Role;
 import by.home.hryhoryeu.realty.entities.model.user.User;
+import by.home.hryhoryeu.realty.services.converters.UserConverter;
 import by.home.hryhoryeu.realty.services.role.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -23,18 +25,22 @@ public class UserServiceImpl implements IUserService {
     private final IUserDao userDao;
     private final IRoleService roleService;
     private final PasswordEncoder passwordEncoder;
+    private final UserConverter userConverter;
 
     @Autowired
     public UserServiceImpl(IUserDao userDao,
                            IRoleService roleService,
-                           PasswordEncoder passwordEncoder) {
+                           PasswordEncoder passwordEncoder,
+                           UserConverter userConverter) {
         this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
         this.roleService = roleService;
+        this.userConverter = userConverter;
     }
 
     @Override
-    public Long setUser(User user) {
+    public Long setUser(UserDto userDto) {
+        User user = userConverter.dtoToUser(userDto);
         Role role = roleService.findByName(Roles.USER.getRoleName());
         List<Role> roleList = Collections.singletonList(role);
 
