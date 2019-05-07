@@ -4,6 +4,8 @@ import by.home.hryhoryeu.realty.entities.dto.UserDto;
 import by.home.hryhoryeu.realty.entities.model.user.User;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 public class UserConverter {
 
@@ -15,7 +17,9 @@ public class UserConverter {
         user.setEmail(dto.getEmail());
         user.setPhone(dto.getPhone());
         user.setAdditionalPhone(dto.getAdditionalPhone());
-        user.setPassword(dto.getPassword1());
+        user.setSkype(dto.getSkype());
+        user.setEnabled(true);
+        user.setUpdated(new Date());
         return user;
     }
 

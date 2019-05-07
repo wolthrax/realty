@@ -3,18 +3,12 @@ package by.home.hryhoryeu.realty.entities.model.user;
 import by.home.hryhoryeu.realty.entities.model.BaseEntity;
 import by.home.hryhoryeu.realty.entities.model.role.Role;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -50,7 +44,7 @@ public class User extends BaseEntity {
     @Column(name = "enabled")
     private Boolean enabled;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
 

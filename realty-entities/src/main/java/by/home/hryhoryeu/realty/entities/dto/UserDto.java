@@ -11,7 +11,7 @@ public class UserDto {
     private String phone;
     private String additionalPhone;
     private String skype;
-    private Date dayOfBirth;
+    private String dayOfBirth;
     private String password1;
     private String password2;
 
@@ -71,11 +71,11 @@ public class UserDto {
         this.skype = skype;
     }
 
-    public Date getDayOfBirth() {
+    public String getDayOfBirth() {
         return dayOfBirth;
     }
 
-    public void setDayOfBirth(Date dayOfBirth) {
+    public void setDayOfBirth(String dayOfBirth) {
         this.dayOfBirth = dayOfBirth;
     }
 

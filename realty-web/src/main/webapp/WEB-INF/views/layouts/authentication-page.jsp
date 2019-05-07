@@ -5,6 +5,7 @@
     <head>
         <title>Title</title>
         <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/style.css"/>">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/form-style.css"/>">
     </head>
     <body>
         <tiles:insertAttribute name="header"/>

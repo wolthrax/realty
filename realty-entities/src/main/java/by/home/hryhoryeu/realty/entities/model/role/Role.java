@@ -9,10 +9,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.JoinColumn;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "role")
@@ -22,8 +23,8 @@ public class Role extends BaseEntity {
     @Column(name = "value")
     private Roles value;
 
-    @OneToOne(mappedBy = "role", cascade = CascadeType.ALL)
-    private User user;
+    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<User> user;
 
     public Roles getValue() {
         return value;
@@ -33,11 +34,11 @@ public class Role extends BaseEntity {
         this.value = value;
     }
 
-    public User getUser() {
+    public List<User> getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(List<User> user) {
         this.user = user;
     }
 }

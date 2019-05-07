@@ -10,14 +10,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/")
 public class UserController {
 
     @Autowired
     private IUserService userService;
 
-    @RequestMapping(path = "/registration", method = RequestMethod.POST)
+    @RequestMapping(path = "/user/registration", method = RequestMethod.POST)
     public ModelAndView registration(UserDto userDto, Model model) {
+        userService.setUser(userDto);
         return new ModelAndView("definition-authentication-page");
     }
 

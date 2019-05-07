@@ -1,6 +1,7 @@
 package by.home.hryhoryeu.realty.services.role;
 
 import by.home.hryhoryeu.realty.dba.dao.role.IRoleDao;
+import by.home.hryhoryeu.realty.entities.enums.Roles;
 import by.home.hryhoryeu.realty.entities.model.role.Role;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -20,12 +21,7 @@ public class RoleService implements IRoleService {
     }
 
     @Override
-    public Role findByName(String name) {
-        return roleDao.findByName(name);
-    }
-
-    @Override
-    public List<Role> roles() {
-        return roleDao.findAll();
+    public Role findByName(Roles role) {
+        return roleDao.findByName(role);
     }
 }

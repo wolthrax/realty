@@ -1,6 +1,7 @@
 package by.home.hryhoryeu.realty.dba.dao.role;
 
 import by.home.hryhoryeu.realty.dba.dao.base.BaseDao;
+import by.home.hryhoryeu.realty.entities.enums.Roles;
 import by.home.hryhoryeu.realty.entities.model.role.Role;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
@@ -16,11 +17,10 @@ public class RoleDao extends BaseDao<Role, Long> implements IRoleDao {
     }
 
     @Override
-    public Role findByName(String name) {
+    public Role findByName(Roles roles) {
         String hql = "FROM Role role WHERE role.value =: name";
         Query query = getSession().createQuery(hql);
-        query.setParameter("name", name);
-        Role r =  (Role) query.getSingleResult();
+        query.setParameter("name", roles);
         return (Role) query.getSingleResult();
     }
 }
