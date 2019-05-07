@@ -1,17 +1,17 @@
 package by.home.hryhoryeu.realty.entities.model.user;
 
-import by.home.hryhoryeu.realty.entities.enums.Status;
 import by.home.hryhoryeu.realty.entities.model.BaseEntity;
 import by.home.hryhoryeu.realty.entities.model.role.Role;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import java.util.Date;
 import java.util.List;
@@ -47,22 +47,15 @@ public class User extends BaseEntity {
     @Column(name="password")
     private String password;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status")
-    private Status status;
+    @Column(name = "enabled")
+    private Boolean enabled;
+
+    @OneToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
 
     @Column(name = "updated")
     private Date updated;
-
-//    @OneToMany(mappedBy = "user")
-//    private List<Realty> realtyList;
-
-    //@JsonIgnore
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private List<Role> roles;
 
     public String getLogin() {
         return login;
@@ -136,13 +129,13 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
+//    public Status getStatus() {
+//        return status;
+//    }
+//
+//    public void setStatus(Status status) {
+//        this.status = status;
+//    }
 
     public Date getUpdated() {
         return updated;
@@ -160,11 +153,28 @@ public class User extends BaseEntity {
 //        this.realtyList = realtyList;
 //    }
 
-    public List<Role> getRoles() {
-        return roles;
+//    public List<Role> getRoles() {
+//        return roles;
+//    }
+//
+//    public void setRoles(List<Role> roles) {
+//        this.roles = roles;
+//    }
+
+
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

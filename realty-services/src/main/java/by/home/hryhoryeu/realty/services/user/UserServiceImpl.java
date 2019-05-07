@@ -41,12 +41,12 @@ public class UserServiceImpl implements IUserService {
     @Override
     public Long setUser(UserDto userDto) {
         User user = userConverter.dtoToUser(userDto);
-        Role role = roleService.findByName(Roles.USER.getRoleName());
-        List<Role> roleList = Collections.singletonList(role);
+        //Role role = roleService.findByName(Roles.USER.getRoleName());
+        //List<Role> roleList = Collections.singletonList(role);
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRoles(roleList);
-        user.setStatus(Status.ACTIVE);
+        //user.setRoles(roleList);
+        //user.setStatus(Status.ACTIVE);
 
         return userDao.set(user);
     }

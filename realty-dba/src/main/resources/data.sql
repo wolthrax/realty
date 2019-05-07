@@ -1,2 +1,2 @@
-INSERT INTO coffeetype(id, disabled, price, type_name) VALUES(1,'N', 20, 'ќчень крепкий и гор€чий кофе');
-INSERT INTO coffeetype(id, disabled, price, type_name) VALUES(2,'N', 15, '¬кусный кофе со сливками')
+# INSERT INTO role(id, value) VALUES(1,'ROLE_ADMIN');
+# INSERT INTO role(id, value) VALUES(2,'ROLE_USER');
