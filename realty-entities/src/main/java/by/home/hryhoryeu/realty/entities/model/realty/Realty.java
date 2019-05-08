@@ -12,9 +12,13 @@ import javax.persistence.Table;
 @Table(name = "realty")
 public class Realty extends BaseEntity {
 
+
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+
 
     public User getUser() {
         return user;

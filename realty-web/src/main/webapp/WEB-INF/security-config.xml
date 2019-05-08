@@ -19,7 +19,7 @@
                 password-parameter="r_password"
                 login-processing-url="/j_spring_security_check"
                 login-page="/login"
-                default-target-url="/user/realty"
+                default-target-url="/realty"
                 authentication-failure-url="/login"/>
         <s:logout
                 logout-url="/j_spring_security_logout"

@@ -3,17 +3,24 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Coffee list</title>
-    <%--    <script type="text/javascript" src="<c:url value="/assets/js/jquery.js"/>"></script>--%>
-    <%--    <script type="text/javascript" src="<c:url value="/assets/js/validation.js"/>"></script>--%>
-    <%--    <link rel="stylesheet" href="<c:url value="/assets/css/style.css" />">--%>
-    <%--    <link rel="stylesheet" href="<c:url value="/assets/css/table.css" />">--%>
+        <title>Realty</title>
+        <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/style.css"/>">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/content-style.css"/>">
     </head>
     <body>
         <tiles:insertAttribute name="header"/>
         <div id="main">
-            <tiles:insertAttribute name="main"/>
+            <div>
+                <tiles:insertAttribute name="menu"/>
+            </div>
+            <div class="filter">
+                <tiles:insertAttribute name="filter"/>
+            </div>
+            <div class="content">
+                <tiles:insertAttribute name="map"/>
+                <tiles:insertAttribute name="realty-list"/>
+            </div>
+
         </div>
         <tiles:insertAttribute name="footer"/>
     </body>

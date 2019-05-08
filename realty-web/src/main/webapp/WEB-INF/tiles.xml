@@ -6,7 +6,10 @@
 <tiles-definitions>
     <definition name="definition-main-page" template="/WEB-INF/views/layouts/main-page.jsp">
         <put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
-        <put-attribute name="main" value="/WEB-INF/views/main-page/main.jsp"/>
+        <put-attribute name="map" value="/WEB-INF/views/main-page/map.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/views/main-page/menu.jsp"/>
+        <put-attribute name="realty-list" value="/WEB-INF/views/main-page/realty-list.jsp"/>
+        <put-attribute name="filter" value="/WEB-INF/views/main-page/filter.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
     </definition>
 

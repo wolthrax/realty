@@ -1,0 +1,53 @@
+.inner {
+    list-style: none;
+    padding-left: 0;
+    margin: 25px 0 0;
+    background:#12364A;
+    height: 50px;
+    z-index: 9999;
+}
+
+.outer {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 -8px;
+    background:#12364A;
+    height: 50px;
+}
+.menu-link {
+    text-decoration: none;
+    background:#12364A;
+    color:#cacaca;
+    padding:0 15px;
+    font-family: arial, serif;
+    line-height:50px;
+    display: block;
+    border-right: 1px solid #000000;
+    -moz-transition: all 0.3s 0.01s ease;
+    -o-transition: all 0.3s 0.01s ease;
+    -webkit-transition: all 0.3s 0.01s ease;
+
+}
+.menu-link:hover {
+    background: #399ed4;/*добавляем эффект при наведении*/
+}
+li {
+    float:left; /*Размещаем список горизонтально для реализации меню*/
+    position:relative; /*задаем позицию для позиционирования*/
+}
+
+/*Стили для скрытого выпадающего меню*/
+li > ul {
+    position:absolute;
+    top:25px;
+    display:none;
+}
+
+/*Делаем скрытую часть видимой*/
+li:hover > ul {
+    display:block;
+    width:250px;  /*Задаем ширину выпадающего меню*/
+}
+li:hover > ul > li {
+    float:none; /*Убираем горизонтальное позиционирование*/
+}
