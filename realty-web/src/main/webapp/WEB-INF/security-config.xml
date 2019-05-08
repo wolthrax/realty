@@ -23,8 +23,7 @@
                 authentication-failure-url="/login"/>
         <s:logout
                 logout-url="/j_spring_security_logout"
-                logout-success-url="/index.jsp"/>
-
+                logout-success-url="/realty"/>
         <s:csrf disabled="true"/>
     </s:http>
     <s:authentication-manager>

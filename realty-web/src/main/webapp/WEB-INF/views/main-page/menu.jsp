@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
     <head>
         <title></title>
@@ -7,16 +8,15 @@
     </head>
     <body>
         <ul class="outer">
-            <li><a class="menu-link" href="#">Аренда</a></li>
-            <li><a class="menu-link" href="#">Продажа</a>
+            <li><a class="menu-link" href="#"><spring:message code="lang.rent"/></a></li>
+            <li><a class="menu-link" href="#"><spring:message code="lang.sale"/></a>
                 <ul class="inner">
-                    <li><a class="menu-link" href="#">1 комнатные</a></li>
-                    <li><a class="menu-link" href="#">2 комнатные</a></li>
-                    <li><a class="menu-link" href="#">3 комнатные</a></li>
+                    <li><a class="menu-link" href="#"><spring:message code="lang.1_room"/></a></li>
+                    <li><a class="menu-link" href="#"><spring:message code="lang.2_room"/></a></li>
+                    <li><a class="menu-link" href="#"><spring:message code="lang.3_room"/></a></li>
+                    <li><a class="menu-link" href="#"><spring:message code="lang.4_room"/></a></li>
                 </ul>
             </li>
-            <li><a class="menu-link" href="#">Цены</a></li>
-            <li><a class="menu-link" href="#">Контакты</a></li>
         </ul>
     </body>
 </html>

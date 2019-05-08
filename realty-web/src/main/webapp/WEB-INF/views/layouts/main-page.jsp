@@ -6,6 +6,9 @@
         <title>Realty</title>
         <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/style.css"/>">
         <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/content-style.css"/>">
+
+        <script type="text/javascript" src="<c:url value="/assets/js/jquery.js"/>"></script>
+        <script type="text/javascript" src="<c:url value="/assets/js/card/card.js"/>"></script>
     </head>
     <body>
         <tiles:insertAttribute name="header"/>

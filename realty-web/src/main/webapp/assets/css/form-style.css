@@ -35,7 +35,6 @@ input[type=reset]{
     padding: 3px;
     border-radius: 25px;
     box-shadow: 0 2px 13px rgba(0,0,0,.25);
-
 }
 
 input[type=button]:focus,

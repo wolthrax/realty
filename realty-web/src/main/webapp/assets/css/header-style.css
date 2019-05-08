@@ -32,6 +32,34 @@
     background-size: 12px 12px;
 }
 
+.icon{
+    width: 36px;
+    height: 27px;
+}
+
+.lang-mng {
+    margin-right: 40px;
+    display: inline;
+    float: right;
+}
+
+.login-mng {
+    margin-right: 40px;
+    display: inline;
+    float: right;
+}
+
+.header-btn {
+    font-family: 'trebuchet MS', 'Lucida sans', Arial, serif;
+    font-size: 14px;
+    color: #cacaca;
+    background-color: #12364A;
+    width: 90px;
+    height: 25px;
+    border: 0 none;
+    margin: auto;
+}
+
 #logo {
     position: absolute;
 }
