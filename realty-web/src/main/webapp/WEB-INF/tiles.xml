@@ -6,7 +6,7 @@
 <tiles-definitions>
     <definition name="definition-main-page" template="/WEB-INF/views/layouts/main-page.jsp">
         <put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
-        <put-attribute name="map" value="/WEB-INF/views/main-page/map.jsp"/>
+        <put-attribute name="map" value="/WEB-INF/views/common/map.jsp"/>
         <put-attribute name="menu" value="/WEB-INF/views/main-page/menu.jsp"/>
         <put-attribute name="realty-list" value="/WEB-INF/views/main-page/realty-list.jsp"/>
         <put-attribute name="filter" value="/WEB-INF/views/main-page/filter.jsp"/>
@@ -22,6 +22,13 @@
     <definition name="definition-registration-page" template="/WEB-INF/views/layouts/registration-page.jsp">
         <put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
         <put-attribute name="main" value="/WEB-INF/views/registration-page/main.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+    </definition>
+
+    <definition name="definition-realty-add-page" template="/WEB-INF/views/layouts/realty-add-page.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+        <put-attribute name="form" value="/WEB-INF/views/realty-add-page/form.jsp"/>
+        <put-attribute name="map" value="/WEB-INF/views/common/map.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
     </definition>
 </tiles-definitions>

@@ -1,11 +1,11 @@
 package by.home.hryhoryeu.realty.services.dictionary;
 
-import by.home.hryhoryeu.realty.entities.model.dictionary.Dictionary;
+import by.home.hryhoryeu.realty.entities.dto.DictionaryDto;
 
 import java.util.List;
 
 public interface IDictionaryService {
 
-    List<Dictionary> findAll(Class clazz);
+    List<DictionaryDto> findAll(Class clazz, String lang);
 
 }

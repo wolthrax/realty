@@ -50,7 +50,7 @@
 }
 
 .header-btn {
-    font-family: 'trebuchet MS', 'Lucida sans', Arial, serif;
+    font-family: "Open Sans", "Helvetica", sans-serif;
     font-size: 14px;
     color: #cacaca;
     background-color: #12364A;
@@ -58,18 +58,53 @@
     height: 25px;
     border: 0 none;
     margin: auto;
+    transition: 0.3s;
+}
+
+.add-btn {
+    font-family: "Open Sans", "Helvetica", sans-serif;
+    font-size: 18px;
+    color: #cacaca;
+    background-color: #12364A;
+    width: 170px;
+    height: 40px;
+    border: 0 none;
+    transition: 0.3s;
+}
+
+.header-btn:hover {
+    background-color: #3675a8;
+}
+
+.add-btn:hover {
+    background-color: #3675a8;
 }
 
 #logo {
-    position: absolute;
+    margin-right: 100px;
+    display: inline;
+    float: left;
+    /*position: absolute;*/
 }
 
 #email_logo {
-    position: absolute;
-    left: 500px;
+    margin-right: 100px;
+    display: inline;
+    float: left;
+    /*position: absolute;*/
+    /*left: 500px;*/
 }
 
 #phone_logo {
-    position: absolute;
-    left: 950px;
+    margin-right: 100px;
+    display: inline;
+    float: left;
+    /*position: absolute;*/
+    /*left: 950px;*/
+}
+
+#header-add-btn {
+    margin: 50px 100px;
+    display: inline;
+    float: left;
 }

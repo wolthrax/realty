@@ -16,8 +16,11 @@ public class Dictionary {
     @Column(name="id")
     private Long id;
 
-    @Column(name="name")
-    private String name;
+    @Column(name="value_en")
+    private String valueEn;
+
+    @Column(name="value_ru")
+    private String valueRu;
 
     public Long getId() {
         return id;
@@ -27,11 +30,19 @@ public class Dictionary {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getValueEn() {
+        return valueEn;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setValueEn(String valueEn) {
+        this.valueEn = valueEn;
+    }
+
+    public String getValueRu() {
+        return valueRu;
+    }
+
+    public void setValueRu(String valueRu) {
+        this.valueRu = valueRu;
     }
 }

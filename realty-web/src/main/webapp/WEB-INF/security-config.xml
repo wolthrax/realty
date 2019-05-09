@@ -11,6 +11,7 @@
         <s:access-denied-handler error-page="/error403.jsp" />
 
 <!--        <s:intercept-url pattern="/user/registration" access = "permitAll()"/>-->
+        <s:intercept-url pattern="/realty/add" access = "hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
 <!--        <s:intercept-url pattern="/user/" access = "hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>-->
 <!--        <s:intercept-url pattern="/admin/" access = "hasRole('ROLE_ADMIN')"/>-->
 

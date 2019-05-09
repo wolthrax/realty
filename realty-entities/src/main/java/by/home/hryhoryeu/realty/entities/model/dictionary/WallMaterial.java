@@ -8,10 +8,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "house_type")
-public class HouseType extends Dictionary{
+@Table(name = "wall_material")
+public class WallMaterial extends Dictionary{
 
-    @OneToOne(mappedBy = "houseType", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "wallMaterial", fetch = FetchType.LAZY)
     private RealtyInfo realtyInfo;
 
     public RealtyInfo getRealtyInfo() {
@@ -21,4 +21,5 @@ public class HouseType extends Dictionary{
     public void setRealtyInfo(RealtyInfo realtyInfo) {
         this.realtyInfo = realtyInfo;
     }
+
 }

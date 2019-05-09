@@ -1,4 +1,4 @@
 package by.home.hryhoryeu.realty.entities.model.realty.info;
 
-public class AreaInfo {
+public class RealtyPhoto {
 }
