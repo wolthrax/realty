@@ -1,4 +1,4 @@
-package by.home.hryhoryeu.realty.services.dictionary.impl;
+package by.home.hryhoryeu.realty.services.dictionary;
 
 import by.home.hryhoryeu.realty.dba.dao.dictionary.IDictionaryDao;
 import by.home.hryhoryeu.realty.entities.dto.DictionaryDto;
@@ -15,12 +15,12 @@ import java.util.List;
 @Transactional
 @Scope(scopeName = "singleton")
 @Service
-public class DictionaryServiceImpl implements IDictionaryService {
+public class DictionaryService implements IDictionaryService {
 
     private IDictionaryDao dictionaryDao;
 
     @Autowired
-    public DictionaryServiceImpl(IDictionaryDao dictionaryDao) {
+    public DictionaryService(IDictionaryDao dictionaryDao) {
         this.dictionaryDao = dictionaryDao;
     }
 

@@ -1,6 +1,5 @@
 package by.home.hryhoryeu.realty.entities.model.realty.info;
 
-import by.home.hryhoryeu.realty.entities.model.dictionary.Currency;
 import by.home.hryhoryeu.realty.entities.model.dictionary.HouseType;
 import by.home.hryhoryeu.realty.entities.model.dictionary.Parking;
 import by.home.hryhoryeu.realty.entities.model.dictionary.WallMaterial;
@@ -9,7 +8,6 @@ import by.home.hryhoryeu.realty.entities.model.realty.Realty;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,7 +24,7 @@ public class RealtyInfo {
     @Column(name="id")
     private Long id;
 
-    @OneToOne(mappedBy = "realtyInfo", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "realtyInfo")
     private Realty realty;
 
     @OneToOne
@@ -41,9 +39,51 @@ public class RealtyInfo {
     @JoinColumn(name ="parking_id")
     private Parking parking;
 
-    @OneToOne
-    @JoinColumn(name ="currency_id")
-    private Currency currency;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "realty_price_id")
+    private RealtyPrice realtyPrice;
+
+    @Column(name="sale")
+    private Boolean sale;
+
+    @Column(name="repair")
+    private Boolean repair;
+
+    @Column(name="floor_number")
+    private Integer floorNumber;
+
+    @Column(name="kitchen_with_wall")
+    private Boolean kitchenWithWall;
+
+    @Column(name="area")
+    private Float area;
+
+    @Column(name="living_area")
+    private Float livingArea;
+
+    @Column(name="kitchen_area")
+    private Float kitchenArea;
+
+    @Column(name="ceiling_height")
+    private Float ceilingHeight;
+
+    @Column(name="year")
+    private Integer year;
+
+    @Column(name="description")
+    private String description;
+
+    @Column(name="coordinates")
+    private String coordinates;
+
+    @Column(name="address")
+    private String address;
+
+    @Column(name = "phone_time_from")
+    private String phoneTimeFrom;
+
+    @Column(name = "phone_time_to")
+    private String phoneTimeTo;
 
     public Long getId() {
         return id;
@@ -85,11 +125,123 @@ public class RealtyInfo {
         this.parking = parking;
     }
 
-    public Currency getCurrency() {
-        return currency;
+    public RealtyPrice getRealtyPrice() {
+        return realtyPrice;
     }
 
-    public void setCurrency(Currency currency) {
-        this.currency = currency;
+    public void setRealtyPrice(RealtyPrice realtyPrice) {
+        this.realtyPrice = realtyPrice;
+    }
+
+    public Boolean getSale() {
+        return sale;
+    }
+
+    public void setSale(Boolean sale) {
+        this.sale = sale;
+    }
+
+    public Boolean getRepair() {
+        return repair;
+    }
+
+    public void setRepair(Boolean repair) {
+        this.repair = repair;
+    }
+
+    public Integer getFloorNumber() {
+        return floorNumber;
+    }
+
+    public void setFloorNumber(Integer floorNumber) {
+        this.floorNumber = floorNumber;
+    }
+
+    public Boolean getKitchenWithWall() {
+        return kitchenWithWall;
+    }
+
+    public void setKitchenWithWall(Boolean kitchenWithWall) {
+        this.kitchenWithWall = kitchenWithWall;
+    }
+
+    public Float getArea() {
+        return area;
+    }
+
+    public void setArea(Float area) {
+        this.area = area;
+    }
+
+    public Float getLivingArea() {
+        return livingArea;
+    }
+
+    public void setLivingArea(Float livingArea) {
+        this.livingArea = livingArea;
+    }
+
+    public Float getKitchenArea() {
+        return kitchenArea;
+    }
+
+    public void setKitchenArea(Float kitchenArea) {
+        this.kitchenArea = kitchenArea;
+    }
+
+    public Float getCeilingHeight() {
+        return ceilingHeight;
+    }
+
+    public void setCeilingHeight(Float ceilingHeight) {
+        this.ceilingHeight = ceilingHeight;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(String coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhoneTimeFrom() {
+        return phoneTimeFrom;
+    }
+
+    public void setPhoneTimeFrom(String phoneTimeFrom) {
+        this.phoneTimeFrom = phoneTimeFrom;
+    }
+
+    public String getPhoneTimeTo() {
+        return phoneTimeTo;
+    }
+
+    public void setPhoneTimeTo(String phoneTimeTo) {
+        this.phoneTimeTo = phoneTimeTo;
     }
 }

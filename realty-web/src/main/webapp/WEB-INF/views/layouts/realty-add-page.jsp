@@ -6,7 +6,12 @@
         <title>Add realty</title>
 
         <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/add-realty-style.css"/>">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/datepicker/jquery.datetimepicker.css"/>">
         <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/style.css"/>">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/other/radio-button-style.css"/>">
+
+        <script type="text/javascript" src="<c:url value="/assets/js/jquery.js"/>"></script>
+        <script type="text/javascript" src="<c:url value="/assets/js/datepicker/timepicker.js"/>"></script>
 
     </head>
     <body>
@@ -19,5 +24,7 @@
             </div>
         </div>
         <tiles:insertAttribute name="footer"/>
+
+        <script type="text/javascript" src="<c:url value="/assets/js/datepicker/pickerinit.js"/>"></script>
     </body>
 </html>

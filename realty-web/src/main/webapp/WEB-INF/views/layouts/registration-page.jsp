@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/datepicker/jquery.datetimepicker.css"/>">
 
     <script type="text/javascript" src="<c:url value="/assets/js/jquery.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="/assets/js/datepicker/jquery.datetimepicker.full.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/assets/js/datepicker/datetimepicker.js"/>"></script>
 </head>
 <body>
     <tiles:insertAttribute name="header"/>

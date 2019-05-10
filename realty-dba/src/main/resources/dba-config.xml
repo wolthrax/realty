@@ -24,8 +24,8 @@
         <property name="valueSeparator" value="?"/>
         <property name="locations">
             <list>
-                <value>file:${CATALINA_HOME}/coffee/db.properties</value>
-                <value>file:${CATALINA_HOME}/coffee/config.properties</value>
+                <value>file:${CATALINA_HOME}/realty/db.properties</value>
+                <value>file:${CATALINA_HOME}/realty/config.properties</value>
                 <value>classpath:db-default.properties</value>
             </list>
         </property>
@@ -40,9 +40,9 @@
         <property name="maxTotal" value="${db.maxTotal?${db_def.maxActive}}"/>
     </bean>
 
-<!--    <jdbc:initialize-database data-source="dataSource">-->
-<!--        <jdbc:script location="classpath:data.sql"/>-->
-<!--    </jdbc:initialize-database>-->
+    <jdbc:initialize-database data-source="dataSource">
+        <jdbc:script location="classpath:data.sql"/>
+    </jdbc:initialize-database>
 
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"

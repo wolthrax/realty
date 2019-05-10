@@ -35,7 +35,8 @@
                 searchControl.events.add('resultselect', function(e) {
                     var index = e.get('index');
                     searchControl.getResult(index).then(function(res) {
-                        console.info(res.geometry.getCoordinates()); // получаем координаты найденной точки
+                        document.getElementById("coordinates").value = res.geometry.getCoordinates();
+                        document.getElementById("address").value = searchControl.getRequestString();
                     });
                 });
                 //

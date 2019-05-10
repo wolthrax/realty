@@ -8,5 +8,7 @@ import java.util.List;
 public interface IDictionaryDao extends IBaseDao<Dictionary, Long> {
 
     List findByType(Class clazz);
+    Object findById(Class clazz, Long id);
+
 
 }

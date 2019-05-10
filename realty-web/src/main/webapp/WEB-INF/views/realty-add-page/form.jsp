@@ -5,21 +5,20 @@
 <html>
     <head>
         <title>Title</title>
-
-        <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/other/radio-button-style.css"/>">
-
     </head>
     <body>
         <div id="fields">
-            <form>
+            <form action="/realty-web/realty/add" method="POST">
+                <input id="address" type="hidden" name="address" value="">
+                <input id="coordinates" type="hidden" name="coordinates" value="">
                 <table>
                     <tr>
                         <td></td>
                         <td>
                             <div class="toggle">
-                                <input id="sale" type="radio" name="isSale" value="true" checked="checked" />
+                                <input id="sale" type="radio" name="sale" value="true" checked="checked" />
                                 <label for="sale">Аренда</label>
-                                <input id="rent" type="radio" name="isSale" value="false"/>
+                                <input id="rent" type="radio" name="sale" value="false"/>
                                 <label for="rent">Продажа</label>
                             </div>
                         </td>
@@ -84,9 +83,9 @@
                         <td>Кухня совмещена<br>с жилой</td>
                         <td>
                             <div class="toggle">
-                                <input id="kitchen_with_hall" type="radio" name="kitchen_with_hall" value="true" checked="checked" />
+                                <input id="kitchen_with_hall" type="radio" name="kitchenWithWall" value="true" checked="checked" />
                                 <label for="kitchen_with_hall">Да</label>
-                                <input id="not_kitchen_with_hall" type="radio" name="kitchen_with_hall" value="false"/>
+                                <input id="not_kitchen_with_hall" type="radio" name="kitchenWithWall" value="false"/>
                                 <label for="not_kitchen_with_hall">Нет</label>
                             </div>
                         </td>
@@ -95,16 +94,16 @@
                         <td><label for="area">Площадь</label></td>
                         <td>
                             <input id="area" type="text" name="area" value="">
-                            <label for="living_area">Общая:</label>
+                            <label for="living_area">Жилая:</label>
                             <input id="living_area" type="text" name="livingArea" value="">
                             <label for="kitchen_area">Кухня:</label>
                             <input id="kitchen_area" type="text" name="kitchenArea" value="">м<sup>2</sup>
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="сeiling_height">Высота постройки</label></td>
+                        <td><label for="сeiling_height">Высота потолка</label></td>
                         <td>
-                            <input id="сeiling_height" type="text" name="floor" value="">м
+                            <input id="сeiling_height" type="text" name="ceilingHeight" value="">м
                         </td>
                     </tr>
                     <tr>
@@ -126,12 +125,22 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>Звонить</td>
+                        <td>
+                            <label for="phone_from">С:</label>
+                            <input id="phone_from" class="datetimepicker_mask" type="text" name='phoneTimeFrom'/>
+                            <label for="phone_to">До:</label>
+                            <input id="phone_to" class="datetimepicker_mask" type="text" name='phoneTimeTo'/>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Описание</td>
                         <td>
                             <textarea name="description" ></textarea>
                         </td>
                     </tr>
                 </table>
+                <input type="submit" value="Добавить"/>
             </form>
         </div>
     </body>

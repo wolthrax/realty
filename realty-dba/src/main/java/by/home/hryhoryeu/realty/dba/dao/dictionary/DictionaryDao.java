@@ -10,12 +10,20 @@ import java.util.List;
 
 @Repository
 @Scope("singleton")
-public class DictionaryDao extends BaseDao<Dictionary, Long> implements IDictionaryDao{
+public class DictionaryDao extends BaseDao<Dictionary, Long> implements IDictionaryDao {
 
     @Override
     public List<?> findByType(Class clazz) {
         String hql = "FROM "+clazz.getName();
         Query query = getSession().createQuery(hql);
         return query.getResultList();
+    }
+
+    @Override
+    public Object findById(Class clazz, Long id) {
+        String hql = "FROM " + clazz.getName() + " dict WHERE dict.id =: id ";
+        Query query = getSession().createQuery(hql);
+        query.setParameter("id", id);
+        return query.getSingleResult();
     }
 }

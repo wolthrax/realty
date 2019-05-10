@@ -5,7 +5,7 @@
         <title>Registration</title>
     </head>
     <body>
-        <form action="/realty-web/user/registration" method="POST">
+        <form action="/realty-web/user/registration" method="POST" autocomplete="off">
             <div class="form">
                 <h1 class="form-header"><spring:message code="lang.registration"/></h1>
                 <table class="form-table">

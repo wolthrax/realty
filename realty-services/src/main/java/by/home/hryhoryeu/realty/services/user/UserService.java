@@ -20,7 +20,7 @@ import java.util.List;
 @Service
 @Scope("singleton")
 @Transactional
-public class UserServiceImpl implements IUserService {
+public class UserService implements IUserService {
 
     private final IUserDao userDao;
     private final IRoleService roleService;
@@ -28,10 +28,10 @@ public class UserServiceImpl implements IUserService {
     private final UserConverter userConverter;
 
     @Autowired
-    public UserServiceImpl(IUserDao userDao,
-                           IRoleService roleService,
-                           PasswordEncoder passwordEncoder,
-                           UserConverter userConverter) {
+    public UserService(IUserDao userDao,
+                       IRoleService roleService,
+                       PasswordEncoder passwordEncoder,
+                       UserConverter userConverter) {
         this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
         this.roleService = roleService;
