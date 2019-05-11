@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -27,15 +28,15 @@ public class RealtyInfo {
     @OneToOne(mappedBy = "realtyInfo")
     private Realty realty;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name ="house_type_id")
     private HouseType houseType;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name ="wall_material_id")
     private WallMaterial wallMaterial;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name ="parking_id")
     private Parking parking;
 

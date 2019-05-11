@@ -33,6 +33,7 @@ input[type=reset]{
     padding: 3px;
     border-radius: 25px;
     box-shadow: 0 2px 13px rgba(0,0,0,.25);
+    transition: 0.3s;
 }
 
 input[type=button]:focus,
@@ -47,6 +48,13 @@ input[type=reset]:active {
     outline: none;
     box-shadow: 0 2px 20px rgba(255,255,255,.25),
     inset 0 0 10px rgba(0,0,0,.4)
+}
+
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover {
+    background-color: #eaeaea;
+    outline: none;
 }
 
 input[type=text],

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -65,8 +66,10 @@ public class RealtyController {
         return modelAndView;
     }
 
-    @RequestMapping(path = "/add", method = RequestMethod.POST)
-    public ModelAndView saveRealty(@ModelAttribute RealtyUpdateData updateData, Model model) {
+    @RequestMapping(path = "/add", method = RequestMethod.POST, consumes="multipart/form-data")
+    public ModelAndView saveRealty(@ModelAttribute RealtyUpdateData updateData,
+                                   @RequestParam("images") MultipartFile[] images,
+                                   Model model) {
 
         String name = SecurityContextHolder.getContext().getAuthentication().getName();
         updateData.setUserId(userService.findByLogin(name).getId());

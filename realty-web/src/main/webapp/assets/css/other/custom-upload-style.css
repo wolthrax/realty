@@ -1,0 +1,30 @@
+.chous {
+    width: 190px;
+    height: 35px;
+    border-radius: 6px;
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+    display: block;
+    font: 16px/35px "Open Sans", "Helvetica", sans-serif;
+    transition: all 0.18s ease-in-out;
+    border: solid 1px #DDD;
+    background-color: #FFF;
+    color: #000000;
+    font-weight: 600;
+}
+
+.chous:hover {
+    background-color: #3675a8;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
+}
+
+.images {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}

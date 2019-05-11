@@ -6,7 +6,7 @@ table {
 .add-container {
     width: 75%;
     min-width: 1580px;
-    height: 98%;
+    height: 99%;
     margin: auto;
 }
 
@@ -47,20 +47,30 @@ table {
 
 input[type=button],
 input[type=submit],
-input[type=reset]{
+input[type=reset] {
+    font-family: "Open Sans", "Helvetica", sans-serif;
+    font-size: 17px;
     background-color: white;
     width: 150px;
-    height: 25px;
+    height: 35px;
     border: 0 none;
     margin: 5px;
     padding: 3px;
     border-radius: 25px;
     box-shadow: 0 2px 13px rgba(0,0,0,.25);
+    transition: 0.3s;
 }
 
 input[type=button]:focus,
 input[type=submit]:focus,
 input[type=reset]:focus {
+    outline: none;
+}
+
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover {
+    background-color: #eaeaea;
     outline: none;
 }
 

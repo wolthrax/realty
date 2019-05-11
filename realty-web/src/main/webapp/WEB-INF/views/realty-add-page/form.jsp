@@ -6,9 +6,9 @@
     <head>
         <title>Title</title>
     </head>
-    <body>
+    <body onload="updateSize();">
         <div id="fields">
-            <form action="/realty-web/realty/add" method="POST">
+            <form action="/realty-web/realty/add" method="POST" enctype="multipart/form-data">
                 <input id="address" type="hidden" name="address" value="">
                 <input id="coordinates" type="hidden" name="coordinates" value="">
                 <table>
@@ -139,8 +139,18 @@
                             <textarea name="description" ></textarea>
                         </td>
                     </tr>
+                    <tr>
+                        <td>Выбор фото</td>
+                        <td>
+                            <label for="images" class="chous">Выберите файлы</label>
+                            <input type="file" class="images" id="images" name="images" multiple="multiple"/>
+                        </td>
+                    </tr>
+                    <tr>
+                       <td align="right" colspan="2"><input type="submit" value="Добавить"/></td>
+                    </tr>
                 </table>
-                <input type="submit" value="Добавить"/>
+
             </form>
         </div>
     </body>

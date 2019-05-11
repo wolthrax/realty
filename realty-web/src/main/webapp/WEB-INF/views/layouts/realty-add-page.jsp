@@ -9,9 +9,11 @@
         <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/datepicker/jquery.datetimepicker.css"/>">
         <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/style.css"/>">
         <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/other/radio-button-style.css"/>">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/assets/css/other/custom-upload-style.css"/>">
 
         <script type="text/javascript" src="<c:url value="/assets/js/jquery.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/assets/js/datepicker/timepicker.js"/>"></script>
+
 
     </head>
     <body>
@@ -26,5 +28,6 @@
         <tiles:insertAttribute name="footer"/>
 
         <script type="text/javascript" src="<c:url value="/assets/js/datepicker/pickerinit.js"/>"></script>
+        <script type="text/javascript" src="<c:url value="/assets/js/other/custom-upload.js"/>"></script>
     </body>
 </html>

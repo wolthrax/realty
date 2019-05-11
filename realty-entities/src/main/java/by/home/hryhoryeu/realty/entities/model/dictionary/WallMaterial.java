@@ -4,22 +4,22 @@ import by.home.hryhoryeu.realty.entities.model.realty.info.RealtyInfo;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "wall_material")
 public class WallMaterial extends Dictionary{
 
-    @OneToOne(mappedBy = "wallMaterial", fetch = FetchType.LAZY)
-    private RealtyInfo realtyInfo;
+    @OneToMany(mappedBy = "wallMaterial", fetch = FetchType.LAZY)
+    private List<RealtyInfo> realtyInfo;
 
-    public RealtyInfo getRealtyInfo() {
+    public List<RealtyInfo> getRealtyInfo() {
         return realtyInfo;
     }
 
-    public void setRealtyInfo(RealtyInfo realtyInfo) {
+    public void setRealtyInfo(List<RealtyInfo> realtyInfo) {
         this.realtyInfo = realtyInfo;
     }
-
 }
