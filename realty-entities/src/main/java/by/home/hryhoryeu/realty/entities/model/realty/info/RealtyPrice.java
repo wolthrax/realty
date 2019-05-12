@@ -1,6 +1,5 @@
 package by.home.hryhoryeu.realty.entities.model.realty.info;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

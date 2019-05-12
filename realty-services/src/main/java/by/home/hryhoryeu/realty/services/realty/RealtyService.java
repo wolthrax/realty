@@ -2,6 +2,7 @@ package by.home.hryhoryeu.realty.services.realty;
 
 import by.home.hryhoryeu.realty.dba.dao.dictionary.IDictionaryDao;
 import by.home.hryhoryeu.realty.dba.dao.realty.IRealtyDao;
+import by.home.hryhoryeu.realty.dba.filesystem.IImageIO;
 import by.home.hryhoryeu.realty.entities.dto.realty.RealtyUpdateData;
 import by.home.hryhoryeu.realty.entities.model.dictionary.Currency;
 import by.home.hryhoryeu.realty.entities.model.dictionary.HouseType;
@@ -18,7 +19,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 @Service
 @Scope("singleton")
@@ -34,16 +38,32 @@ public class RealtyService implements IRealtyService {
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private IImageIO imageIO;
+
     //TODO Scheduler
-    private final BigDecimal EXCHANGE_RATES = new BigDecimal(2);
+    private final BigDecimal EXCHANGE_RATES = new BigDecimal(2.1090);
 
     @Override
-    public Long setRealty(RealtyUpdateData updateData) {
+    public Long setRealty(RealtyUpdateData updateData, List<byte[]> imageList) {
 
         Realty realty = new Realty();
         realty.setCreatedDate(new Date());
         RealtyInfo realtyInfo = new RealtyInfo();
-        //RealtyPhoto realtyPhoto = new RealtyPhoto();
+        List<String> imagePathList = new ArrayList<>();
+        String path = "\\" + updateData.getUserId() + "\\" + UUID.randomUUID();
+
+        for (int i = 0; i < imageList.size(); i++) {
+            imagePathList.add(imageIO.save(imageList.get(i), path, "\\" + i + ".jpg"));
+        }
+
+        List<RealtyPhoto> realtyPhotoList = new ArrayList<>();
+        for (String imagePath : imagePathList) {
+            RealtyPhoto realtyPhoto = new RealtyPhoto();
+            realtyPhoto.setImagePath(imagePath);
+            realtyPhoto.setRealty(realty);
+            realtyPhotoList.add(realtyPhoto);
+        }
 
         HouseType houseType = (HouseType) dictionaryDao.findById(HouseType.class, updateData.getHouseTypeId());
         realtyInfo.setHouseType(houseType);
@@ -59,7 +79,7 @@ public class RealtyService implements IRealtyService {
         if (currency.getValueEn().equals("BYN")) {
             realtyPrice.setPrice(updateData.getPrice());
         } else {
-            realtyPrice.setPrice(updateData.getPrice().divide(EXCHANGE_RATES));
+            realtyPrice.setPrice(updateData.getPrice().multiply(EXCHANGE_RATES));
         }
         realtyInfo.setRealtyPrice(realtyPrice);
 
@@ -79,6 +99,7 @@ public class RealtyService implements IRealtyService {
         realtyInfo.setPhoneTimeTo(updateData.getPhoneTimeTo());
 
         realty.setUser(userService.findById(updateData.getUserId()));
+        realty.setRealtyPhotoList(realtyPhotoList);
         realty.setRealtyInfo(realtyInfo);
         return realtyDao.set(realty);
     }

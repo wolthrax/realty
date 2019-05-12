@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -68,12 +70,16 @@ public class RealtyController {
 
     @RequestMapping(path = "/add", method = RequestMethod.POST, consumes="multipart/form-data")
     public ModelAndView saveRealty(@ModelAttribute RealtyUpdateData updateData,
-                                   @RequestParam("images") MultipartFile[] images,
-                                   Model model) {
+                                   @RequestParam("images") List<MultipartFile> images,
+                                   Model model) throws IOException {
 
+        List<byte[]> imageList = new ArrayList<>();
+        for (MultipartFile multipartFile : images) {
+            imageList.add(multipartFile.getBytes());
+        }
         String name = SecurityContextHolder.getContext().getAuthentication().getName();
         updateData.setUserId(userService.findByLogin(name).getId());
-        realtyService.setRealty(updateData);
+        realtyService.setRealty(updateData, imageList);
 
         ModelAndView modelAndView = new ModelAndView("definition-main-page");
         return modelAndView;
