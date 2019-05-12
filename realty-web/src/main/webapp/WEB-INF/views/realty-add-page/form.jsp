@@ -68,15 +68,16 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="floor">Этаж</label></td>
+                        <td><label for="floor">Этаж / Этажей</label></td>
                         <td>
-                            <input id="floor" type="text" name="floor" value="">
+                            <input id="floor" type="text" name="floor" value=""> /
+                            <input id="floorNumber" type="text" name="floorNumber" value="">
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="floorNumber">Этажей в доме</label></td>
+                        <td><label for="rooms">Комнат</label></td>
                         <td>
-                            <input id="floorNumber" type="text" name="floorNumber" value="">
+                            <input id="rooms" type="text" name="rooms" value="">
                         </td>
                     </tr>
                     <tr>

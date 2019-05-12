@@ -13,6 +13,7 @@ public class RealtyUpdateData {
     private Long parkingTypeId;
     private Integer floor;
     private Integer floorNumber;
+    private Integer rooms;
     private Boolean kitchenWithWall;
     private Float area;
     private Float livingArea;
@@ -97,6 +98,14 @@ public class RealtyUpdateData {
 
     public void setFloorNumber(Integer floorNumber) {
         this.floorNumber = floorNumber;
+    }
+
+    public Integer getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(Integer rooms) {
+        this.rooms = rooms;
     }
 
     public Boolean getKitchenWithWall() {

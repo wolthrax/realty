@@ -50,26 +50,32 @@ public class RealtyInfo {
     @Column(name="repair")
     private Boolean repair;
 
+    @Column(name = "floor")
+    private Integer floor = 1;
+
     @Column(name="floor_number")
-    private Integer floorNumber;
+    private Integer floorNumber = 1;
+
+    @Column(name = "rooms")
+    private Integer rooms = 1;
 
     @Column(name="kitchen_with_wall")
     private Boolean kitchenWithWall;
 
     @Column(name="area")
-    private Float area;
+    private Float area = 0f;
 
     @Column(name="living_area")
-    private Float livingArea;
+    private Float livingArea = 0f;
 
     @Column(name="kitchen_area")
-    private Float kitchenArea;
+    private Float kitchenArea = 0f;
 
     @Column(name="ceiling_height")
-    private Float ceilingHeight;
+    private Float ceilingHeight = 0f;
 
     @Column(name="year")
-    private Integer year;
+    private Integer year = 0;
 
     @Column(name="description")
     private String description;
@@ -150,12 +156,28 @@ public class RealtyInfo {
         this.repair = repair;
     }
 
+    public Integer getFloor() {
+        return floor;
+    }
+
+    public void setFloor(Integer floor) {
+        this.floor = floor;
+    }
+
     public Integer getFloorNumber() {
         return floorNumber;
     }
 
     public void setFloorNumber(Integer floorNumber) {
         this.floorNumber = floorNumber;
+    }
+
+    public Integer getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(Integer rooms) {
+        this.rooms = rooms;
     }
 
     public Boolean getKitchenWithWall() {

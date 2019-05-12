@@ -3,6 +3,8 @@ package by.home.hryhoryeu.realty.services.realty;
 import by.home.hryhoryeu.realty.dba.dao.dictionary.IDictionaryDao;
 import by.home.hryhoryeu.realty.dba.dao.realty.IRealtyDao;
 import by.home.hryhoryeu.realty.dba.filesystem.IImageIO;
+import by.home.hryhoryeu.realty.entities.dto.realty.RealtyPreview;
+import by.home.hryhoryeu.realty.entities.dto.realty.RealtySearchData;
 import by.home.hryhoryeu.realty.entities.dto.realty.RealtyUpdateData;
 import by.home.hryhoryeu.realty.entities.model.dictionary.Currency;
 import by.home.hryhoryeu.realty.entities.model.dictionary.HouseType;
@@ -20,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -85,7 +88,9 @@ public class RealtyService implements IRealtyService {
 
         realtyInfo.setSale(updateData.getSale());
         realtyInfo.setRepair(updateData.getRepair());
+        realtyInfo.setFloor(updateData.getFloor());
         realtyInfo.setFloorNumber(updateData.getFloorNumber());
+        realtyInfo.setRooms(updateData.getRooms());
         realtyInfo.setKitchenWithWall(updateData.getKitchenWithWall());
         realtyInfo.setArea(updateData.getArea());
         realtyInfo.setLivingArea(updateData.getLivingArea());
@@ -102,5 +107,29 @@ public class RealtyService implements IRealtyService {
         realty.setRealtyPhotoList(realtyPhotoList);
         realty.setRealtyInfo(realtyInfo);
         return realtyDao.set(realty);
+    }
+
+    @Override
+    public List<RealtyPreview> search(RealtySearchData searchData) {
+
+        List<Realty> realtyList = realtyDao.search(searchData);
+        List<RealtyPreview> realtyPreviewList = new ArrayList<>();
+
+        for (Realty realty : realtyList) {
+            RealtyPreview realtyPreview = new RealtyPreview();
+            realtyPreview.setRealtyPriceUSD(realty.getRealtyInfo().getRealtyPrice().getPrice().multiply(EXCHANGE_RATES));
+            realtyPreview.setRealtyPriceBYN(realty.getRealtyInfo().getRealtyPrice().getPrice());
+            realtyPreview.setFloorNumberStr(realty.getRealtyInfo().getFloor().toString() +
+                    "/" + realty.getRealtyInfo().getFloorNumber().toString());
+            realtyPreview.setFullAreaStr(realty.getRealtyInfo().getArea().toString() +
+                    "/" + realty.getRealtyInfo().getLivingArea().toString() +
+                    "/" + realty.getRealtyInfo().getKitchenArea().toString());
+            realtyPreview.setCoordinates(realty.getRealtyInfo().getCoordinates());
+            realtyPreview.setAddress(realty.getRealtyInfo().getAddress());
+            realtyPreview.setRooms(realty.getRealtyInfo().getRooms());
+            realtyPreview.setPreviewImage(Base64.getEncoder().encodeToString(imageIO.read(realty.getRealtyPhotoList().get(0).getImagePath())));
+            realtyPreviewList.add(realtyPreview);
+        }
+        return realtyPreviewList;
     }
 }

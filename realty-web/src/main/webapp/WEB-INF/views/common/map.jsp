@@ -39,6 +39,37 @@
                         document.getElementById("address").value = searchControl.getRequestString();
                     });
                 });
+
+                <c:forEach var = "realtyPreview" items ="${realtyPreviewList}" varStatus= "movieLoopIndex">
+
+                    var html  = "<div class=\"card\">\n" +
+                        "                    <div class=\"card-img\">\n" +
+                        "                        <img src=\"data:image/jpg;base64, ${realtyPreview.previewImage}\">\n" +
+                        "                    </div>\n" +
+                        "                </div>";
+
+                    var myPlacemark1 = new ymaps.Placemark([${realtyPreview.coordinates}],
+                        {
+                            balloonContent: html
+                        },
+                        { iconLayout: 'default#image',
+                            iconImageHref: 'http://blog.karmanov.ws/files/APIYaMaps1/min_marker.png',
+                            iconImageSize: [10, 16],
+                            iconImageOffset: [0, 0],
+                            balloonLayout: "default#imageWithContent",
+                            balloonContentSize: [300, 300],
+                            // balloonImageHref: 'http://blog.karmanov.ws/files/APIYaMaps1/min_popup.png',
+                            balloonImageOffset: [0, 0],
+                            balloonImageSize: [289, 151],
+                            balloonShadow: true
+                        });
+                    realtyMap.geoObjects.add(myPlacemark1);
+                </c:forEach>
+
+
+
+
+
                 //
                 // var html  = '<div class="popup">';
                 // html +=     '<img src="http://blog.karmanov.ws/files/APIYaMaps1/min_image.png" alt="" />';

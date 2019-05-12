@@ -1,11 +1,14 @@
 package by.home.hryhoryeu.realty.web.controllers;
 
 import by.home.hryhoryeu.realty.entities.dto.DictionaryDto;
+import by.home.hryhoryeu.realty.entities.dto.realty.RealtyPreview;
+import by.home.hryhoryeu.realty.entities.dto.realty.RealtySearchData;
 import by.home.hryhoryeu.realty.entities.dto.realty.RealtyUpdateData;
 import by.home.hryhoryeu.realty.entities.model.dictionary.Currency;
 import by.home.hryhoryeu.realty.entities.model.dictionary.HouseType;
 import by.home.hryhoryeu.realty.entities.model.dictionary.Parking;
 import by.home.hryhoryeu.realty.entities.model.dictionary.WallMaterial;
+import by.home.hryhoryeu.realty.entities.model.realty.Realty;
 import by.home.hryhoryeu.realty.services.dictionary.IDictionaryService;
 import by.home.hryhoryeu.realty.services.realty.IRealtyService;
 import by.home.hryhoryeu.realty.services.user.IUserService;
@@ -42,7 +45,7 @@ public class RealtyController {
         if (name != null && !name.isEmpty()) {
             modelAndView.addObject("userName", name);
         }
-        modelAndView.setViewName("definition-main-page");
+        modelAndView.setViewName("redirect:/realty/search");
         return modelAndView;
     }
 
@@ -81,7 +84,21 @@ public class RealtyController {
         updateData.setUserId(userService.findByLogin(name).getId());
         realtyService.setRealty(updateData, imageList);
 
+        ModelAndView modelAndView = new ModelAndView("redirect:/realty/search");
+        return modelAndView;
+    }
+
+    @RequestMapping(path = "/search", method = RequestMethod.GET)
+    public ModelAndView findAll(RealtySearchData searchData, Model model) {
+
         ModelAndView modelAndView = new ModelAndView("definition-main-page");
+        List<RealtyPreview> realtyPreviewList =  realtyService.search(searchData);
+
+        String name = SecurityContextHolder.getContext().getAuthentication().getName();
+        if (name != null && !name.isEmpty()) {
+            modelAndView.addObject("userName", name);
+        }
+        modelAndView.addObject("realtyPreviewList", realtyPreviewList);
         return modelAndView;
     }
 }

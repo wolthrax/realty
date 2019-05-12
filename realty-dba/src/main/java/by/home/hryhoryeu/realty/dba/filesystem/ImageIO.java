@@ -7,9 +7,13 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 @Component
 @PropertySource(value = { "classpath:settings.properties" })
@@ -57,5 +61,27 @@ public class ImageIO implements IImageIO {
             }
         }
         return imageDir + currentRealtyImagePath + fileName;
+    }
+
+    @Override
+    public byte[] read(String fileDir) {
+
+        byte[] by = null;
+
+        String fullFileDir = System.getenv(environment.getProperty("path.variable")) + fileDir;
+
+        try (ByteArrayOutputStream out = new ByteArrayOutputStream()){
+            InputStream input = new BufferedInputStream(
+                    new FileInputStream(fullFileDir));
+            int data;
+            while ((data = input.read()) != -1){
+                out.write(data);
+            }
+            by = out.toByteArray();
+        } catch (IOException e){
+            e.printStackTrace();
+            logger.error("Can`t read file");
+        }
+        return by;
     }
 }
