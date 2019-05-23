@@ -1,6 +1,6 @@
 package by.home.hryhoryeu.realty.web.controllers;
 
-import by.home.hryhoryeu.realty.entities.dto.UserDto;
+import by.home.hryhoryeu.realty.entities.dto.user.UserRegistrationData;
 import by.home.hryhoryeu.realty.services.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,8 @@ public class UserController {
     private IUserService userService;
 
     @RequestMapping(path = "/user/registration", method = RequestMethod.POST)
-    public ModelAndView registration(UserDto userDto, Model model) {
-        userService.setUser(userDto);
+    public ModelAndView registration(UserRegistrationData userRegistrationData, Model model) {
+        userService.setUser(userRegistrationData);
         return new ModelAndView("definition-authentication-page");
     }
 

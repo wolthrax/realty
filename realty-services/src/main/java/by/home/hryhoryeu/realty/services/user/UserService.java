@@ -1,7 +1,7 @@
 package by.home.hryhoryeu.realty.services.user;
 
 import by.home.hryhoryeu.realty.dba.dao.user.IUserDao;
-import by.home.hryhoryeu.realty.entities.dto.UserDto;
+import by.home.hryhoryeu.realty.entities.dto.user.UserRegistrationData;
 import by.home.hryhoryeu.realty.entities.enums.Roles;
 import by.home.hryhoryeu.realty.entities.model.role.Role;
 import by.home.hryhoryeu.realty.entities.model.user.User;
@@ -39,14 +39,14 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public Long setUser(UserDto userDto) {
-        User user = userConverter.dtoToUser(userDto);
+    public Long setUser(UserRegistrationData userRegistrationData) {
+        User user = userConverter.dtoToUser(userRegistrationData);
         Role role = roleService.findByName(Roles.ROLE_USER);
 
         user.setRole(role);
-        user.setPassword(passwordEncoder.encode(userDto.getPassword1()));
+        user.setPassword(passwordEncoder.encode(userRegistrationData.getPassword1()));
         try {
-            user.setDayOfBirth(DateBuilder.fromString(userDto.getDayOfBirth()));
+            user.setDayOfBirth(DateBuilder.fromString(userRegistrationData.getDayOfBirth()));
         } catch (ParseException e) {
             e.printStackTrace();
         }

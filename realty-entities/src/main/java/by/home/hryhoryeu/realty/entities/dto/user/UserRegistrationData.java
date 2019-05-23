@@ -1,8 +1,8 @@
-package by.home.hryhoryeu.realty.entities.dto;
+package by.home.hryhoryeu.realty.entities.dto.user;
 
 import java.util.Date;
 
-public class UserDto {
+public class UserRegistrationData {
 
     private String login;
     private String name;
