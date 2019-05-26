@@ -66,7 +66,6 @@ public class UserService implements IUserService {
 
     @Override
     public User findByLogin(String login) {
-        User user = userDao.findByLogin(login);
         return userDao.findByLogin(login);
     }
 }

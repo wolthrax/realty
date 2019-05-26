@@ -66,7 +66,7 @@ public class ImageIO implements IImageIO {
     @Override
     public byte[] read(String fileDir) {
 
-        byte[] by = null;
+        byte[] image = null;
 
         String fullFileDir = System.getenv(environment.getProperty("path.variable")) + fileDir;
 
@@ -77,11 +77,11 @@ public class ImageIO implements IImageIO {
             while ((data = input.read()) != -1){
                 out.write(data);
             }
-            by = out.toByteArray();
+            image = out.toByteArray();
         } catch (IOException e){
             e.printStackTrace();
             logger.error("Can`t read file");
         }
-        return by;
+        return image;
     }
 }

@@ -26,7 +26,7 @@
             <list>
                 <value>file:${CATALINA_HOME}/realty/db.properties</value>
                 <value>file:${CATALINA_HOME}/realty/config.properties</value>
-                <value>classpath:db-default.properties</value>
+                <value>classpath:db-default_test.properties</value>
             </list>
         </property>
     </bean>
@@ -41,7 +41,7 @@
     </bean>
 
     <jdbc:initialize-database data-source="dataSource">
-        <jdbc:script location="classpath:data.sql"/>
+        <jdbc:script location="classpath:data_test.sql"/>
     </jdbc:initialize-database>
 
     <bean id="sessionFactory"
