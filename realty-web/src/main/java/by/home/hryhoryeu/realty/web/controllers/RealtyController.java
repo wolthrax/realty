@@ -8,7 +8,6 @@ import by.home.hryhoryeu.realty.entities.model.dictionary.Currency;
 import by.home.hryhoryeu.realty.entities.model.dictionary.HouseType;
 import by.home.hryhoryeu.realty.entities.model.dictionary.Parking;
 import by.home.hryhoryeu.realty.entities.model.dictionary.WallMaterial;
-import by.home.hryhoryeu.realty.entities.model.realty.Realty;
 import by.home.hryhoryeu.realty.services.dictionary.IDictionaryService;
 import by.home.hryhoryeu.realty.services.realty.IRealtyService;
 import by.home.hryhoryeu.realty.services.user.IUserService;

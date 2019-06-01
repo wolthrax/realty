@@ -1,7 +1,7 @@
 .form{
     font-family: "Open Sans", "Helvetica", sans-serif;
     font-size: 14px;
-    display: block;
+    display: table;
     padding: 10px 30px 20px 30px;
     margin: 90px auto;
     max-width: 350px;
