@@ -17,7 +17,7 @@
 		<mysql-connector.version>5.1.47</mysql-connector.version>
 		<dbcp.version>2.6.0</dbcp.version>
 		<spring.version>5.1.4.RELEASE</spring.version>
-		<spring-security.version>5.1.4.RELEASE</spring-security.version>
+		<spring-security.version>5.3.3.RELEASE</spring-security.version>
 		<json-web-token.version>0.9.1</json-web-token.version>
 		<log4j.version>2.11.2</log4j.version>
 		<junit.version>5.4.1</junit.version>
